@@ -1,0 +1,160 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://i.pinimg.com/736x/46/80/3e/46803ed74f70cc5c85e2ad0fd14adf13.jpg'); /* უკანა ფონის ფოტო */
+    background-size: cover; /* ფონის სრულად გაშლა */
+    background-position: center; /* ფონის ცენტრირება */
+    background-repeat: no-repeat; /* ფონის გამეორების გარეშე */
+    background-attachment: fixed; /* ფონის ფიქსირება */
+    color: #333;
+    margin: 0;
+    padding: 20px; /* დავამატოთ padding, რომ კონტენტი კიდეებიდან ოდნავ დაშორდეს */
+    min-height: 100vh; /* მინიმალური სიმაღლე ეკრანის სიმაღლის ტოლი */
+    overflow-y: auto; /* ვერტიკალური სქროლი */
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* ნახევრად გამჭვირვალე თეთრი ფონი */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto; /* კონტეინერის ცენტრირება */
+}
+
+header h1 {
+    color: #e60073;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.message p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.gallery {
+    margin-top: 20px;
+}
+
+.gallery h2 {
+    color: #e60073;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 ფოტო თითოეულ რიგში */
+    gap: 10px; /* ფოტოებს შორის მანძილი */
+}
+
+.photos img {
+    width: 100%; /* ფოტოები გაივსებენ უჯრებს */
+    height: auto; /* პროპორციების შენარჩუნება */
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photos img:hover {
+    transform: scale(1.1); /* ფოტოს ზომის გაზრდა hover-ზე */
+}
+
+.animation {
+    position: relative;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.hearts, .flowers {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px); }
+    100% { transform: translateY(100vh); }
+}
+
+.hearts::before, .flowers::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    animation: fall 5s linear infinite;
+}
+
+.hearts::before {
+    content: '❤️';
+    font-size: 24px;
+    animation-duration: 3s;
+}
+
+.flowers::before {
+    content: '🌸';
+    font-size: 24px;
+    animation-duration: 7s;
+}
+
+button {
+    background-color: #e60073;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer; /* მაუსის კურსორი ღილაკზე */
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff4d94; /* hover ეფექტი */
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* რესპონსიული დიზაინი */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* ტექსტის ზომის შემცირება პატარა ეკრანებზე */
+    }
+
+    .photos {
+        grid-template-columns: repeat(2, 1fr); /* 2 ფოტო თითოეულ რიგში */
+    }
+
+    .message p {
+        font-size: 1em; /* ტექსტის ზომის შემცირება */
+    }
+
+    button {
+        font-size: 0.9em; /* ღილაკის ტექსტის ზომის შემცირება */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* ტექსტის ზომის შემცირება ძალიან პატარა ეკრანებზე */
+    }
+
+    .photos {
+        grid-template-columns: 1fr; /* 1 ფოტო თითოეულ რიგში */
+    }
+
+    .message p {
+        font-size: 0.9em; /* ტექსტის ზომის შემცირება */
+    }
+
+    button {
+        font-size: 0.8em; /* ღილაკის ტექსტის ზომის შემცირება */
+    }
+}
